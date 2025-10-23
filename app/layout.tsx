@@ -41,6 +41,13 @@ export const metadata: Metadata = {
   description: 'Perfionix AI provides intelligent AI consulting and solutions that empower businesses to optimize performance, drive innovation, and achieve sustainable growth.',
   keywords: 'AI consulting, machine learning, artificial intelligence, AgriTech, HealthTech, FinTech, AI solutions',
   authors: [{ name: 'Perfionix AI' }],
+  icons: {
+    icon: [
+      { url: '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png', sizes: '32x32', type: 'image/png' },
+      { url: '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png', sizes: '16x16', type: 'image/png' },
+    ],
+    apple: '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png',
+  },
 }
 
 export const viewport: Viewport = {
