@@ -119,7 +119,7 @@ export async function POST(request: Request) {
       // Continue to send email even if DB fails
     }
 
-    // Send email
+    // Send email to business owner
     try {
       const transporter = createTransporter()
 
@@ -147,6 +147,29 @@ export async function POST(request: Request) {
         { error: 'Failed to send email: ' + emailError.message },
         { status: 500 }
       )
+    }
+
+    // Send auto-reply email to form submitter
+    try {
+      const transporter = createTransporter()
+
+      const autoReplyMailOptions = {
+        from: process.env.SMTP_FROM || process.env.SMTP_USER,
+        to: payload.email,
+        subject: 'Thank you for reaching out to Perfionix AI',
+        text: `Dear ${payload.fullName},
+
+Thank you for reaching out to our platform. We have received your collaboration request and our team will connect with you soon.
+
+Best regards,
+The Perfionix AI Team`
+      }
+
+      await transporter.sendMail(autoReplyMailOptions)
+      console.log('[Collaboration API] Auto-reply email sent successfully')
+    } catch (autoReplyError: any) {
+      console.error('[Collaboration API] Auto-reply Email Error:', autoReplyError.message)
+      // Don't return error for auto-reply failure, just log it
     }
 
     return NextResponse.json({ success: true })
