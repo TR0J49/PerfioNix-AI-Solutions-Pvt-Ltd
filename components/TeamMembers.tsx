@@ -22,7 +22,7 @@ const TeamMembers = () => {
       name: 'Aniket Kumar Mishra',
       role: 'Fullstack AI Developer',
       expertise: 'End-to-end AI solution engineering, scalable web platforms, MLOps integration',
-      image: '/aniket_mishra_26Jx5J6.webp'
+      image: '/aniket_profile_image_1.jpg'
     },
     {
       name: 'Malay Jain',
