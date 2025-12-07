@@ -81,11 +81,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/PerfioNix logo.png', sizes: '32x32', type: 'image/png' },
-      { url: '/PerfioNix logo.png', sizes: '16x16', type: 'image/png' }
+      { url: '/cropped_circle_image.png', sizes: '32x32', type: 'image/png' },
+      { url: '/cropped_circle_image.png', sizes: '16x16', type: 'image/png' }
     ],
-    apple: '/PerfioNix logo.png',
-    shortcut: '/PerfioNix logo.png'
+    apple: '/cropped_circle_image.png',
+    shortcut: '/cropped_circle_image.png'
   }
 }
 

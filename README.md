@@ -64,7 +64,7 @@ perfionix-ai-website/
    SMTP_USER=shubhamaisolutions@gmail.com
    SMTP_PASS=<your_gmail_app_password>
    SMTP_FROM="Perfionix AI <shubhamaisolutions@gmail.com>"
-   COLLABORATION_EMAIL_TO=rahangdaleshubham2003@gmail.com
+   COLLABORATION_EMAIL_TO=connect@perfionixai.com
 
    # MongoDB Atlas connection
    MONGODB_URI=mongodb+srv://programmershubham755_db_user:<password>@cluster0.mtffd3s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
@@ -86,7 +86,7 @@ perfionix-ai-website/
 - **Collaboration Form** (`components/CollaborationForm.tsx`)
   - Submits to `POST /api/collaboration`
   - Validates required fields, stores the payload in MongoDB collection `collaborationRequests`, then sends an email notification
-  - Default recipient: `rahangdaleshubham2003@gmail.com` (override via `COLLABORATION_EMAIL_TO`)
+  - Default recipient: `connect@perfionixai.com` (override via `COLLABORATION_EMAIL_TO`)
 
 - **Contact Form** (`components/ContactForm.tsx`)
   - Submits to `POST /api/contact`
@@ -111,8 +111,8 @@ flowchart TD
   D --> E[Send email via Gmail SMTP]
   D2 --> E2[Send email via Gmail SMTP]
 
-  E --> F[Inbox: rahangdaleshubham2003@gmail.com]
-  E2 --> F2[Inbox: rahangdaleshubham2003@gmail.com]
+  E --> F[Inbox: connect@perfionixai.com]
+  E2 --> F2[Inbox: connect@perfionixai.com]
 
   C -->|Error| G[Return 400 with validation message]
   C2 -->|Error| G2[Return 400 with validation message]

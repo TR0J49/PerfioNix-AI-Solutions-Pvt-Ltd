@@ -59,7 +59,7 @@ export default function CollaborationPage() {
           >
             <h3 className="text-white text-xl font-semibold mb-4 font-space">Need a quick call?</h3>
             <p className="text-sm text-gray-400 leading-relaxed mb-6">
-              Email us at <span className="text-primary-300 font-medium">rahangdaleshubham2003@gmail.com</span> or
+              Email us at <span className="text-primary-300 font-medium">connect@perfionixai.com</span> or
               schedule a discovery call after submitting the form.
             </p>
             <div className="space-y-3 text-sm text-gray-400">

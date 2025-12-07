@@ -1,7 +1,7 @@
 export const SITE_URL = 'https://www.perfionix-ai.com'
 export const SITE_NAME = 'Perfionix AI'
 export const SITE_DESCRIPTION = 'Perfionix AI delivers strategic artificial intelligence solutions that accelerate digital transformation, unlock operational efficiencies, and drive data-powered decision making for global enterprises.'
-export const CONTACT_EMAIL = 'rahangdaleshubham2003@gmail.com'
+export const CONTACT_EMAIL = 'connect@perfionixai.com'
 export const SITE_LOGO = '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png'
 
 // Trending AI SEO Keywords for 2025

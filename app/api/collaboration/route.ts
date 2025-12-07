@@ -125,7 +125,7 @@ export async function POST(request: Request) {
 
       const mailOptions: any = {
         from: process.env.SMTP_FROM || process.env.SMTP_USER,
-        to: process.env.COLLABORATION_EMAIL_TO || 'rahangdaleshubham2003@gmail.com',
+        to: process.env.COLLABORATION_EMAIL_TO || 'connect@perfionixai.com',
         subject: `New collaboration request from ${payload.fullName}`,
         text: renderEmail(payload as CollaborationPayload, !!attachment, attachment?.name)
       }
