@@ -9,24 +9,24 @@ const TeamMembers = () => {
     {
       name: 'Shubham Rahangdale',
       role: 'Founder & CEO',
-      expertise: 'AI Systems, Machine Learning, Product Innovation',
+      expertise: 'AI Systems, Machine Learning, Product Innovation Leading AI strategy and scalable product development for modern businesses.',
       image: '/Shubham.jpg'
     },
     {
       name: 'Nikky Bisen',
-      role: 'Python Developer',
+      role: 'Co-Founder & Python Developer',
       expertise: 'Python automation, data pipelines, API integrations for AI-ready infrastructure',
       image: '/Nikky B .png'
     },
     {
       name: 'Aniket Kumar Mishra',
-      role: 'Fullstack AI Developer',
+      role: 'Co-Founder & Fullstack AI Developer',
       expertise: 'End-to-end AI solution engineering, scalable web platforms, MLOps integration',
-      image: '/aniket_mishra_26Jx5J6.webp'
+      image: '/image.png'
     },
     {
       name: 'Malay Jain',
-      role: 'Innovative Researcher & AI Developer',
+      role: 'Co-Founder & Innovative Researcher',
       expertise: 'Applied AI research, generative AI experimentation, intelligent product development',
       image: '/Malay.jpg'
     },

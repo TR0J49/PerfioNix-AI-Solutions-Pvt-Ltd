@@ -81,11 +81,11 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png', sizes: '32x32', type: 'image/png' },
-      { url: '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png', sizes: '16x16', type: 'image/png' }
+      { url: '/PerfioNix logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/PerfioNix logo.png', sizes: '16x16', type: 'image/png' }
     ],
-    apple: '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png',
-    shortcut: '/Gemini_Generated_Image_c8hi16c8hi16c8hi.png'
+    apple: '/PerfioNix logo.png',
+    shortcut: '/PerfioNix logo.png'
   }
 }
 

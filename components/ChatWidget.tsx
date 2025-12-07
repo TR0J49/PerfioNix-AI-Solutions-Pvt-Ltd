@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { MessageCircle, X } from 'lucide-react'
 
 const SYSTEM_PROMPT = `You are Perfionix AI Assistant – a professional AI assistant for company info, website guidance, and content modification.
@@ -10,18 +10,14 @@ Always be friendly and professional.
 Company Info:
 - Name: Perfionix AI
 - Services: AI Consulting, AgriTech, HealthTech, Renewable Energy, FoodTech, Banking AI
-- Team: Shubham Rahangdale
-- Contact: perfionixaisolutions@gmail.com, +91 6261330148
+- Team: Shubham Rahangdale (Founder), Malay Jain (Co-founder), Aniket Kumar Mishra (Co-founder)
+- Contact: connect@perfionixai.com, +91 6261330148
 - LinkedIn: https://www.linkedin.com/company/perfionix-ai-solutions
 - Instagram: https://www.instagram.com/perfionix_ai.io?igsh=b2xnczB0b2hmaWNs`
 
-const LOCAL_MODEL_SETTINGS = {
-  model: 'gpt-oss:120b-cloud',
-  num_predict: 700,
-  temperature: 0.6
-}
-
-const CHAT_ENDPOINT = 'http://localhost:11434/api/chat'
+const GEMINI_API_KEY = 'AIzaSyCzwA_xaKNtIJrKB2wFaZG6U8zkybqdORs'
+const GEMINI_MODEL = 'gemini-2.5-flash'
+const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${GEMINI_API_KEY}`
 
 type ChatRole = 'system' | 'user' | 'assistant'
 
@@ -30,12 +26,6 @@ interface ChatMessage {
   content: string
 }
 
-interface StreamingChunk {
-  message?: {
-    content?: string
-  }
-  error?: string
-}
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -48,13 +38,6 @@ const ChatWidget = () => {
   const controllerRef = useRef<AbortController | null>(null)
 
   const widgetRef = useRef<HTMLDivElement | null>(null)
-
-  const conversationPayload = useMemo<ChatMessage[]>(() => {
-    return [
-      { role: 'system', content: SYSTEM_PROMPT },
-      ...messages.filter((message) => message.role !== 'assistant' || message !== messages[0])
-    ]
-  }, [messages])
 
   useEffect(() => {
     return () => {
@@ -97,17 +80,38 @@ const ChatWidget = () => {
     controllerRef.current = abortController
 
     try {
+      // Build Gemini API request format
+      const geminiContents = [
+        // System instruction as first user message
+        {
+          role: 'user',
+          parts: [{ text: SYSTEM_PROMPT }]
+        },
+        {
+          role: 'model',
+          parts: [{ text: 'Understood. I am the Perfionix AI Assistant and will help with company info, website guidance, and content modification.' }]
+        },
+        // Convert chat history to Gemini format
+        ...messages.slice(1).map((msg) => ({
+          role: msg.role === 'user' ? 'user' : 'model',
+          parts: [{ text: msg.content }]
+        })),
+        // Add current user message
+        {
+          role: 'user',
+          parts: [{ text: userMessage.content }]
+        }
+      ]
+
       const payload = {
-        model: LOCAL_MODEL_SETTINGS.model,
-        messages: [...conversationPayload, userMessage],
-        stream: true,
-        options: {
-          num_predict: LOCAL_MODEL_SETTINGS.num_predict,
-          temperature: LOCAL_MODEL_SETTINGS.temperature
+        contents: geminiContents,
+        generationConfig: {
+          temperature: 0.7,
+          maxOutputTokens: 1024
         }
       }
 
-      const response = await fetch(CHAT_ENDPOINT, {
+      const response = await fetch(GEMINI_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -117,7 +121,8 @@ const ChatWidget = () => {
       })
 
       if (!response.ok || !response.body) {
-        throw new Error('Unable to reach local chatbot. Ensure the Python service is running on port 11434.')
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData?.error?.message || 'Unable to reach Gemini API.')
       }
 
       const reader = response.body.getReader()
@@ -130,12 +135,13 @@ const ChatWidget = () => {
         const chunkText = decoder.decode(value, { stream: true })
         const lines = chunkText.split('\n')
         lines.forEach((line) => {
-          if (!line.trim()) return
+          if (!line.trim() || !line.startsWith('data: ')) return
           try {
-            const parsed: StreamingChunk = JSON.parse(line)
-            const content = parsed.message?.content
-            if (content) {
-              assistantContent += content
+            const jsonStr = line.slice(6) // Remove 'data: ' prefix
+            const parsed = JSON.parse(jsonStr)
+            const text = parsed?.candidates?.[0]?.content?.parts?.[0]?.text
+            if (text) {
+              assistantContent += text
               setMessages((prev) => {
                 const updated = [...prev]
                 updated[updated.length - 1] = { role: 'assistant', content: assistantContent }
@@ -148,12 +154,12 @@ const ChatWidget = () => {
         })
       }
     } catch (error: any) {
-      const errorMessage = error?.message ?? 'Unexpected error while connecting to local chatbot.'
+      const errorMessage = error?.message ?? 'Unexpected error while connecting to Gemini API.'
       setMessages((prev) => {
         const updated = [...prev]
         updated[updated.length - 1] = {
           role: 'assistant',
-          content: `⚠️ ${errorMessage}\n\nStart the local Python chatbot server (port 11434) and try again.`
+          content: `⚠️ ${errorMessage}`
         }
         return updated
       })

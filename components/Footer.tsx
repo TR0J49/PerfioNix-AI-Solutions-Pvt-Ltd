@@ -64,7 +64,7 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start text-gray-400 hover:text-white transition-colors group">
                 <Mail size={18} className="mr-3 mt-0.5 text-primary-400 group-hover:text-primary-300" />
-                <span className="text-sm">perfionixaisolutions@gmail.com</span>
+                <span className="text-sm">connect@perfionixai.com</span>
               </li>
               <li className="flex items-start text-gray-400 hover:text-white transition-colors group">
                 <Phone size={18} className="mr-3 mt-0.5 text-primary-400 group-hover:text-primary-300" />

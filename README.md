@@ -146,7 +146,7 @@ flowchart TD
 - Chat widget loads dynamically with a sleek gradient UI and loading indicators.
 
 ## 📞 Contact
-- **Email:** perfionixaisolutions@gmail.com
+- **Email:** connect@perfionixai.com
 - **Phone:** +91 6261330148
 - **Headquarters:** Tiroda, Maharashtra 441714, India
 - **LinkedIn:** https://www.linkedin.com/company/perfionix-ai-solutions

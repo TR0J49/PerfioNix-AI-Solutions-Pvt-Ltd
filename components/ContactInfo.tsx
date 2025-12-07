@@ -8,8 +8,8 @@ const ContactInfo = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'perfionixaisolutions@gmail.com',
-      href: 'mailto:perfionixaisolutions@gmail.com',
+      value: 'connect@perfionixai.com',
+      href: 'mailto:connect@perfionixai.com',
       gradient: 'from-blue-500 to-cyan-500'
     },
     {
