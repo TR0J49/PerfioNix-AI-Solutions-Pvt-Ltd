@@ -4,6 +4,8 @@ import CollaborationForm from '@/components/CollaborationForm'
 import TrustedCollaboration from '@/components/TrustedCollaboration'
 import { motion } from 'framer-motion'
 
+// Note: Metadata is exported from layout or a separate file for client components
+
 const highlights = [
   {
     title: 'Strategic AI Partnerships',

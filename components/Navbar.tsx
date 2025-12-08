@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { Menu, X, Sparkles } from 'lucide-react'
+import { Menu, X, Sparkles, Rocket } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
 const Navbar = () => {
@@ -22,27 +22,29 @@ const Navbar = () => {
   }
 
   return (
-    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
-      scrolled ? 'glass-effect shadow-2xl' : 'bg-transparent'
+    <nav className={`sticky top-0 z-50 transition-all duration-500 ${
+      scrolled
+        ? 'bg-[#0a0520]/90 backdrop-blur-xl border-b border-purple-500/20 shadow-lg shadow-purple-500/10'
+        : 'bg-transparent'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex items-center">
             <Link href="/" className="flex items-center group">
-              <div className="relative w-12 h-12 mr-3 rounded-xl overflow-hidden border-2 border-primary-500/50 group-hover:border-primary-400 transition-all duration-300 neon-glow">
+              <div className="relative w-12 h-12 mr-3 rounded-xl overflow-hidden border-2 border-purple-500/50 group-hover:border-purple-400 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-purple-500/30">
                 <Image
-                  src="/perfionix-logo.jpg"
+                  src="/PerfioNix logo.png"
                   alt="Perfionix AI Logo"
                   width={48}
                   height={48}
                   className="w-full h-full object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-secondary-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-pink-500/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <div className="flex flex-col">
                 <span className="font-bold text-xl text-white font-space tracking-tight">Perfionix AI</span>
-                <span className="text-xs text-primary-400 font-medium">Next-Gen Solutions</span>
+                <span className="text-xs text-purple-400 font-medium">Next-Gen Solutions</span>
               </div>
             </Link>
           </div>
@@ -62,20 +64,20 @@ const Navbar = () => {
                 href={item.href}
                 className="relative px-4 py-2 text-gray-300 hover:text-white transition-colors group"
               >
-                <span className="relative z-10">{item.label}</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500/0 via-primary-500/10 to-primary-500/0 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity" />
-                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary-400 to-secondary-400 group-hover:w-3/4 transition-all duration-300" />
+                <span className="relative z-10 flex items-center gap-1">
+                  {item.label}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/0 via-purple-500/10 to-purple-500/0 opacity-0 group-hover:opacity-100 rounded-lg transition-opacity" />
+                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 group-hover:w-3/4 transition-all duration-300" />
               </Link>
             ))}
-            
+
             <Link
               href="/contact"
-              className="ml-4 relative px-6 py-2.5 rounded-lg font-semibold text-white overflow-hidden group"
+              className="ml-4 px-6 py-2.5 rounded-xl font-semibold text-white bg-transparent border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-500 via-secondary-500 to-accent-500 animate-gradient" />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-600 opacity-0 group-hover:opacity-100 transition-opacity" />
-              <span className="relative flex items-center gap-2">
-                <Sparkles className="w-4 h-4" />
+              <span className="flex items-center gap-2">
+                <Rocket className="w-4 h-4" />
                 Contact Us
               </span>
             </Link>
@@ -85,7 +87,7 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="text-gray-300 hover:text-white focus:outline-none p-2 rounded-lg glass-effect border border-primary-500/30 hover:border-primary-400 transition-all"
+              className="text-gray-300 hover:text-white focus:outline-none p-2 rounded-xl bg-white/5 border border-purple-500/30 hover:border-purple-400 hover:bg-white/10 transition-all"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -95,7 +97,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden pb-4">
-            <div className="px-2 pt-2 pb-3 space-y-2 glass-card rounded-xl mt-2 border border-primary-500/20">
+            <div className="px-2 pt-2 pb-3 space-y-2 bg-[#0a0520]/95 backdrop-blur-xl rounded-2xl mt-2 border border-purple-500/20">
               {[
                 { href: '/', label: 'Home' },
                 { href: '/about', label: 'About Us' },
@@ -108,10 +110,10 @@ const Navbar = () => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-primary-500/10 rounded-lg transition-all border border-transparent hover:border-primary-500/30"
+                  className="flex items-center justify-between px-4 py-3 text-gray-300 hover:text-white hover:bg-purple-500/10 rounded-xl transition-all border border-transparent hover:border-purple-500/30"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.label}
+                  <span>{item.label}</span>
                 </Link>
               ))}
             </div>

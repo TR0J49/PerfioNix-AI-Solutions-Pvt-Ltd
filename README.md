@@ -1,189 +1,284 @@
 # Perfionix AI Website
 
-A modern marketing website for Perfionix AI, showcasing services, industry solutions, team expertise, and partnership opportunities. Built with **Next.js 14**, **React 18**, **Tailwind CSS**, and **Framer Motion**, the site delivers a polished, animated experience with performance-focused optimizations, Gmail SMTP-powered notifications, and MongoDB-backed contact and collaboration workflows.
+A modern, SEO-optimized marketing website for **Perfionix AI** - Empowering Industries with Intelligent Innovation. Built with **Next.js 14**, **React 18**, **Tailwind CSS**, and **Framer Motion**, featuring AI-powered products, comprehensive SEO optimization, and enterprise-grade contact workflows.
 
-## 🆕 Latest Updates (October 2025)
-- **Gmail SMTP integration** using account `programmershubham775@gmail.com` (sender `shubhamaisolutions@gmail.com`) with app-password based authentication.
-- **MongoDB Atlas persistence** for both Contact and Collaboration forms via collections `contactMessages` and `collaborationRequests` in database `perfionix`.
-- **Shared database helper** at `lib/mongodb.ts` to reuse a single client across API routes.
-- **README refresh** detailing environment variables, credential management, and database inspection steps.
+## Latest Updates (December 2025)
 
-## 🚀 Features
-- **Immersive Hero** with gradient accents, responsive CTAs, and instant-render animations
-- **Industry and Services sections** highlighting cross-domain AI solutions
-- **Interactive collaboration workflow** featuring a dedicated page, MongoDB persistence, and email notifications
-- **Enhanced chat assistant widget** with dynamic gradients, status indicator, and dark mode layout
-- **Modern contact section** with social cards and embedded Google Maps location for Tiroda, Maharashtra
-- **Performance tuning** (lazy-loaded media, reduced animation delays, `content-visibility`, `contain` usage)
-- **Responsive navigation** and deep-linked CTAs pointing to `/industries`, `/contact`, and `/collaboration`
+- **Comprehensive SEO Optimization** with structured data (JSON-LD), meta tags, and sitemap
+- **New AI Products Added**: AXIO AI, DocNavigator AI, Friday Voice Assistant, RenewForecast
+- **Professional UI Enhancements** with blue/indigo color schemes
+- **PWA Support** with manifest.json
+- **Enhanced robots.txt** for better search engine crawling
+- **MongoDB Atlas** integration for contact and collaboration forms
+- **Gmail SMTP** for email notifications
 
-## 🧱 Tech Stack
-- [Next.js 14](https://nextjs.org/) (App Router)
-- [React 18](https://react.dev/)
-- [Tailwind CSS 3](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/)
-- [Lucide Icons](https://lucide.dev/)
-- [Nodemailer](https://nodemailer.com/) for contact + collaboration form email delivery
-- [MongoDB Atlas](https://www.mongodb.com/atlas/database) for persisting submissions
+## Features
 
-## 📂 Project Structure
+- **AI Products Showcase** - AXIO AI, DocNavigator, Friday Voice Assistant, RenewForecast
+- **Immersive Hero** with gradient accents, responsive CTAs, and smooth animations
+- **Industry Solutions** highlighting cross-domain AI applications
+- **Interactive Collaboration** workflow with MongoDB persistence and email notifications
+- **AI Chat Assistant** widget with Gemini API integration
+- **Modern Contact Section** with social cards and Google Maps integration
+- **SEO Optimized** with structured data, meta tags, sitemap, and robots.txt
+- **Performance Tuning** (lazy-loaded media, optimized animations, content-visibility)
+- **Responsive Design** with mobile-first approach
+
+## Tech Stack
+
+| Technology | Purpose |
+|------------|---------|
+| [Next.js 14](https://nextjs.org/) | React framework with App Router |
+| [React 18](https://react.dev/) | UI library |
+| [TypeScript](https://www.typescriptlang.org/) | Type safety |
+| [Tailwind CSS 3](https://tailwindcss.com/) | Styling |
+| [Framer Motion](https://www.framer.com/motion/) | Animations |
+| [Lucide Icons](https://lucide.dev/) | Icons |
+| [Nodemailer](https://nodemailer.com/) | Email delivery |
+| [MongoDB Atlas](https://www.mongodb.com/atlas/database) | Database |
+| [Google Gemini API](https://ai.google.dev/) | AI Chat |
+
+## Project Structure
+
 ```
 perfionix-ai-website/
 ├── app/
 │   ├── page.tsx                # Home page
-│   ├── contact/                # Contact hero, info, and form
-│   ├── collaboration/          # Collaboration hero + advanced form
-│   ├── industries/             # Industry-specific solutions
-│   ├── services/               # Services overview
-│   ├── team/                   # Team showcase
 │   ├── about/                  # About Perfionix AI
+│   ├── services/               # AI Services overview
+│   ├── products/               # AI Products showcase
+│   ├── industries/             # Industry-specific solutions
+│   ├── team/                   # Team showcase
+│   ├── collaboration/          # Partnership opportunities
+│   ├── contact/                # Contact page
+│   ├── layout.tsx              # Root layout with SEO
+│   ├── sitemap.ts              # Dynamic sitemap
 │   └── api/
-│       └── collaboration/      # POST route → MongoDB + Nodemailer handler
-│       └── contact/            # POST route → MongoDB + Nodemailer handler
+│       ├── contact/            # Contact form handler
+│       ├── collaboration/      # Collaboration form handler
+│       └── chat/               # AI chat API
+├── components/
+│   ├── Hero.tsx                # Home hero section
+│   ├── ProductsList.tsx        # Products showcase
+│   ├── ChatWidget.tsx          # AI chat assistant
+│   ├── Navbar.tsx              # Navigation
+│   ├── Footer.tsx              # Footer
+│   └── ...                     # Other components
 ├── lib/
-│   └── mongodb.ts              # Reusable MongoDB client helper
-├── components/                 # Hero, ChatWidget, forms, cards, etc.
-├── public/                     # Static assets (logo, media)
-├── tailwind.config.js          # Tailwind theme configuration
-├── app/globals.css             # Global styles
-├── package.json                # Scripts and dependencies
-└── README.md                   # Project documentation (this file)
+│   ├── mongodb.ts              # MongoDB client helper
+│   └── siteConfig.ts           # SEO & site configuration
+├── public/
+│   ├── robots.txt              # Search engine directives
+│   ├── manifest.json           # PWA manifest
+│   └── ...                     # Static assets
+├── tailwind.config.js          # Tailwind configuration
+├── next.config.js              # Next.js configuration
+├── package.json                # Dependencies & scripts
+└── README.md                   # Documentation
 ```
 
-## ⚙️ Getting Started
-1. **Install dependencies**
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** 18.x or higher
+- **npm** or **yarn** package manager
+- **Git** for version control
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/perfionix-ai/perfionix-ai-website.git
+   cd perfionix-ai-website
+   ```
+
+2. **Install dependencies**
    ```bash
    npm install
    ```
-2. **Configure environment variables**
-   Create or update `.env.local` in the project root:
+
+3. **Configure environment variables**
+
+   Create a `.env.local` file in the project root:
    ```env
-   # Gmail SMTP (account: shubhamaisolutions@gmail.com)
+   # Gmail SMTP Configuration
    SMTP_HOST=smtp.gmail.com
    SMTP_PORT=587
-   SMTP_USER=shubhamaisolutions@gmail.com
-   SMTP_PASS=<your_gmail_app_password>
-   SMTP_FROM="Perfionix AI <shubhamaisolutions@gmail.com>"
+   SMTP_USER=your-email@gmail.com
+   SMTP_PASS=your_gmail_app_password
+   SMTP_FROM="Perfionix AI <your-email@gmail.com>"
    COLLABORATION_EMAIL_TO=connect@perfionixai.com
 
-   # MongoDB Atlas connection
-   MONGODB_URI=mongodb+srv://programmershubham755_db_user:<password>@cluster0.mtffd3s.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+   # MongoDB Atlas Connection
+   MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/perfionix?retryWrites=true&w=majority
+
+   # Google Gemini API (for AI Chat)
+   GEMINI_API_KEY=your_gemini_api_key
    ```
-   - Generate an app password under **Google Account → Security → App Passwords** and replace `<your_gmail_app_password>`.
-   - Replace `<password>` with the actual database user password (`CdatzQol7wDUs6Nn`) or provision a new credential.
-   - Ensure `.env.local` stays out of version control.
-3. **Run the development server**
-   ```bash
-   npm run dev
 
-   npm run dev -- --hostname 0.0.0.0
-   
-   ```
-   Visit `http://localhost:3000` in your browser.
+### Running the Project
 
-## 📬 Form Workflows & Storage
+#### Development Mode
 
-- **Collaboration Form** (`components/CollaborationForm.tsx`)
-  - Submits to `POST /api/collaboration`
-  - Validates required fields, stores the payload in MongoDB collection `collaborationRequests`, then sends an email notification
-  - Default recipient: `connect@perfionixai.com` (override via `COLLABORATION_EMAIL_TO`)
+```bash
+# Start development server
+npm run dev
 
-- **Contact Form** (`components/ContactForm.tsx`)
-  - Submits to `POST /api/contact`
-  - Validates inputs, persists the message to MongoDB collection `contactMessages`, and emails the configured inbox
-  - Response shows inline success/error feedback to the user
-
-Both routes rely on `lib/mongodb.ts` for a shared Atlas connection. Emails are dispatched through Gmail SMTP (account: `programmershubham775@gmail.com` / sender `shubhamaisolutions@gmail.com`).
-
-## 📊 Form Flow Diagram
-
-```mermaid
-flowchart TD
-  A[Visitor fills Contact Form] --> B[POST /api/contact]
-  A2[Visitor fills Collaboration Form] --> B2[POST /api/collaboration]
-
-  B --> C{Validate payload}
-  B2 --> C2{Validate payload}
-
-  C -->|OK| D[Insert into MongoDB collection `contactMessages`]
-  C2 -->|OK| D2[Insert into MongoDB collection `collaborationRequests`]
-
-  D --> E[Send email via Gmail SMTP]
-  D2 --> E2[Send email via Gmail SMTP]
-
-  E --> F[Inbox: connect@perfionixai.com]
-  E2 --> F2[Inbox: connect@perfionixai.com]
-
-  C -->|Error| G[Return 400 with validation message]
-  C2 -->|Error| G2[Return 400 with validation message]
-
-  E --> H[API returns success JSON]
-  E2 --> H2[API returns success JSON]
-
-  style D fill:#f6f8ff,stroke:#4f46e5,stroke-width:2px
-  style D2 fill:#f6f8ff,stroke:#4f46e5,stroke-width:2px
-  style E fill:#fef3c7,stroke:#d97706,stroke-width:2px
-  style E2 fill:#fef3c7,stroke:#d97706,stroke-width:2px
+# The site will be available at:
+# http://localhost:3000
 ```
 
-## 🌐 Key Pages & Links
-- `/` – Landing page highlighting offerings and CTAs
-- `/industries` – Sector-specific AI solutions
-- `/services` – Consulting and product services overview
-- `/collaboration` – Partnership pitch form and value proposition
-- `/contact` – Contact details, map embed, and general inquiry form
+#### Development with Network Access
 
-## 🔧 Available Scripts
-- `npm run dev` – Start the Next.js development server
-- `npm run build` – Generate a production build
-- `npm run start` – Serve the production build
-- `npm run lint` – Run ESLint checks
+```bash
+# Allow access from other devices on your network
+npm run dev -- --hostname 0.0.0.0
 
-## 🧠 Performance Notes
-- Video background is lazy-loaded with reduced opacity for faster initial paints.
-- Animations use shortened durations and delays for instant render feel.
-- `content-visibility` and `contain` used to reduce layout cost.
-- Chat widget loads dynamically with a sleek gradient UI and loading indicators.
+# Access from other devices using your IP:
+# http://your-ip-address:3000
+```
 
-## 📞 Contact
-- **Email:** connect@perfionixai.com
-- **Phone:** +91 6261330148
-- **Headquarters:** Tiroda, Maharashtra 441714, India
-- **LinkedIn:** https://www.linkedin.com/company/perfionix-ai-solutions
-- **Instagram:** https://www.instagram.com/perfionix_ai.io
+#### Production Build
 
-## ✅ Next Steps
-- Replace placeholder secrets with secure values before deployment.
-- Deploy to a hosting provider (e.g., Vercel) and configure all environment variables (SMTP + MongoDB) in project settings.
-- Monitor MongoDB collections via Atlas and rotate credentials as necessary.
-- Keep Gmail app passwords private; regenerate if you suspect exposure.
+```bash
+# Create optimized production build
+npm run build
 
-## 🗄️ Database Operations
+# Start production server
+npm run start
+```
 
-- **Database used:** MongoDB Atlas cluster `Cluster0`, database name `perfionix`.
+### Available Scripts
 
-- **Check stored submissions via mongosh**
-  ```bash
-  # Connect using MongoDB Shell or mongosh
-  mongosh "mongodb+srv://programmershubham755_db_user:<password>@cluster0.mtffd3s.mongodb.net/perfionix"
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server on port 3000 |
+| `npm run build` | Create optimized production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint code checks |
 
-  # Inside the shell
-  show collections
-  db.collaborationRequests.find().sort({ createdAt: -1 }).limit(5)
-  db.contactMessages.find().sort({ createdAt: -1 }).limit(5)
-  ```
-- Replace `<password>` with `CdatzQol7wDUs6Nn` (or the rotated value).
-- Alternatively use MongoDB Atlas UI → **Cluster0 → Browse Collections** to inspect `perfionix` database.
-- Atlas UI quick path: `https://cloud.mongodb.com` → log in with account `programmershubham775@gmail.com` → select project → **Data Services → Cluster0 → Browse Collections**.
+## AI Products
 
-## 🔐 Account & Security Notes
+### AXIO AI
+All-in-One AI Productivity Platform with Smart Chat, Document Intelligence (DocIQ), Data Visualization (VizIQ), Smart Tasks, Quick Notes, and Reminders.
 
-- **Gmail SMTP account:** `programmershubham775@gmail.com`
-  - Sender identity: `shubhamaisolutions@gmail.com` (set in `SMTP_FROM`)
-  - Use Google App Passwords; do **not** enable “Less secure apps”.
-- **MongoDB Atlas project:** Cluster `Cluster0`
-  - Database user: `programmershubham755_db_user`
-  - Default password: `CdatzQol7wDUs6Nn` (rotate in Atlas UI if compromised)
-- Store new credentials in a secure vault; never commit them to Git.
+### DocNavigator AI
+AI-powered documentation crawler and RAG system that transforms any documentation website into an intelligent knowledge base.
+- **URL**: https://docsassistant.perfionixai.com/
+
+### Friday AI Voice Assistant
+Multilingual AI voice assistant with real-time speech recognition supporting Hindi, English, and regional languages.
+- **URL**: https://voicebot.perfionixai.com/
+
+### RenewForecast
+AI-powered renewable energy forecasting system for solar and wind power plants with real-time weather integration.
+- **URL**: https://renewforecast.aiproducts.tech/
+
+## SEO Features
+
+The website includes comprehensive SEO optimization:
+
+- **Meta Tags**: Title, description, keywords, Open Graph, Twitter Cards
+- **Structured Data (JSON-LD)**:
+  - Organization schema
+  - Professional Service schema
+  - Website schema with search action
+  - Software Products schema
+  - FAQ schema for rich snippets
+  - Breadcrumb schema
+- **Sitemap**: Auto-generated with priorities
+- **Robots.txt**: Configured for optimal crawling
+- **PWA Manifest**: For app-like experience
+- **Canonical URLs**: Prevent duplicate content issues
+
+## Pages & Routes
+
+| Route | Description |
+|-------|-------------|
+| `/` | Landing page with hero and highlights |
+| `/about` | Company overview, mission, and values |
+| `/services` | AI services and solutions |
+| `/products` | AI products showcase |
+| `/industries` | Industry-specific AI solutions |
+| `/team` | Team members and leadership |
+| `/collaboration` | Partnership opportunities |
+| `/contact` | Contact information and form |
+
+## Form Workflows
+
+### Contact Form
+- Submits to `POST /api/contact`
+- Validates inputs and stores in MongoDB `contactMessages` collection
+- Sends email notification via Gmail SMTP
+
+### Collaboration Form
+- Submits to `POST /api/collaboration`
+- Stores in MongoDB `collaborationRequests` collection
+- Sends detailed partnership inquiry email
+
+## Database Operations
+
+```bash
+# Connect to MongoDB using mongosh
+mongosh "mongodb+srv://username:password@cluster.mongodb.net/perfionix"
+
+# View collections
+show collections
+
+# Query recent submissions
+db.contactMessages.find().sort({ createdAt: -1 }).limit(5)
+db.collaborationRequests.find().sort({ createdAt: -1 }).limit(5)
+```
+
+## Deployment
+
+### Vercel (Recommended)
+
+1. Push code to GitHub
+2. Import project in Vercel
+3. Configure environment variables in Vercel dashboard
+4. Deploy
+
+### Manual Deployment
+
+```bash
+# Build the project
+npm run build
+
+# Start with PM2 (production)
+pm2 start npm --name "perfionix-ai" -- start
+```
+
+## Performance Optimizations
+
+- Lazy-loaded images and videos
+- Dynamic component imports
+- Optimized font loading with `display: swap`
+- Content-visibility for below-fold content
+- Reduced animation delays for instant feel
+- Image optimization with Next.js Image component
+
+## Contact
+
+- **Website**: https://www.perfionixai.com
+- **Email**: connect@perfionixai.com
+- **Phone**: +91 6261330148
+- **Location**: Nagpur, Maharashtra, India
+- **LinkedIn**: https://www.linkedin.com/company/perfionix-ai-solutions
+- **Instagram**: https://www.instagram.com/perfionix_ai.io
+
+## Security Notes
+
+- Store all credentials in `.env.local` (not committed to Git)
+- Use Google App Passwords for SMTP (not regular passwords)
+- Rotate MongoDB credentials periodically
+- Keep API keys secure and never expose in client-side code
+
+## License
+
+Copyright 2025 Perfionix AI Technology Pvt Ltd. All rights reserved.
+
+---
 
 > Built with passion to showcase Perfionix AI's innovation across industries.

@@ -16,7 +16,7 @@ const Footer = () => {
             <div className="flex items-center mb-6 group">
               <div className="relative w-14 h-14 mr-4 rounded-xl overflow-hidden border-2 border-primary-500/50 group-hover:border-primary-400 transition-all neon-glow">
                 <Image
-                  src="/perfionix-logo.jpg"
+                  src="/PerfioNix logo.png"
                   alt="Perfionix AI Logo"
                   width={56}
                   height={56}
