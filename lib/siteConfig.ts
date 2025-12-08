@@ -112,7 +112,7 @@ export const PRODUCTS = [
   {
     name: 'RenewForecast',
     description: 'AI-powered renewable energy forecasting system for solar and wind power plants with real-time weather integration',
-    url: 'https://renewforecast.aiproducts.tech/',
+    url: 'http://renewforecast.perfionixai.com',
     category: 'Energy Software'
   }
 ]

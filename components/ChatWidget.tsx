@@ -327,9 +327,6 @@ const ChatWidget = () => {
 
         {/* Pulse Ring */}
         <div className="absolute inset-0 rounded-2xl border-2 border-white/30 animate-ping" />
-
-        {/* Online Indicator */}
-        <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-[#0a0520] animate-pulse" />
       </button>
     )
   }
