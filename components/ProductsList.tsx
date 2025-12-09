@@ -333,21 +333,21 @@ const ProductsList = () => {
             <div className="absolute -inset-[1px] bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 rounded-[32px]" />
 
             {/* Card Content */}
-            <div className="relative bg-[#0a0a1a]/95 backdrop-blur-xl rounded-[30px] p-8 md:p-12 lg:p-16">
+            <div className="relative bg-[#0a0a1a]/95 backdrop-blur-xl rounded-[20px] sm:rounded-[30px] p-4 sm:p-8 md:p-12 lg:p-16">
 
               {/* Top Section - Logo & Title */}
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-12">
-                <div className="flex items-center gap-6">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 md:gap-8 mb-12">
+                <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 text-center sm:text-left">
                   {/* Animated Logo Container */}
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
                     transition={{ type: 'spring', duration: 1 }}
-                    className="relative"
+                    className="relative flex-shrink-0"
                   >
                     <div className="absolute -inset-3 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-3xl opacity-50 blur-xl animate-pulse" />
-                    <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white/5 backdrop-blur-xl border border-blue-500/20 p-3 overflow-hidden">
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl bg-white/5 backdrop-blur-xl border border-blue-500/20 p-2 sm:p-3 overflow-hidden">
                       <Image
                         src="/axio-ai-logo.png"
                         alt="AXIO AI"
@@ -359,31 +359,31 @@ const ProductsList = () => {
                   </motion.div>
 
                   <div>
-                    <h2 className="text-4xl md:text-6xl font-bold font-space mb-2">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold font-space mb-2">
                       <span className="text-white">AXIO</span>
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-400"> AI</span>
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl">All-in-One Productivity Intelligence</p>
+                    <p className="text-gray-400 text-base sm:text-lg md:text-xl">All-in-One Productivity Intelligence</p>
                   </div>
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
                   <a
                     href="http://192.168.29.62:5000"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:from-blue-500 hover:via-indigo-400 hover:to-violet-400 transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-blue-500/25"
+                    className="inline-flex items-center gap-2 px-5 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base text-white bg-gradient-to-r from-blue-600 via-indigo-500 to-violet-500 hover:from-blue-500 hover:via-indigo-400 hover:to-violet-400 transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-blue-500/25"
                   >
                     <Rocket className="w-5 h-5" />
                     Try Now
                   </a>
                   <Link
                     href="/contact"
-                    className="group px-8 py-4 rounded-2xl font-semibold bg-white/5 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-xl"
+                    className="group px-5 sm:px-8 py-3 sm:py-4 rounded-2xl font-semibold text-sm sm:text-base bg-white/5 border border-white/20 hover:border-white/40 hover:bg-white/10 transition-all duration-300 hover:scale-105 backdrop-blur-xl"
                   >
                     <span className="flex items-center text-white">
-                      <MessageSquare className="mr-2 w-5 h-5" />
+                      <MessageSquare className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
                       Contact Us
                     </span>
                   </Link>
@@ -391,7 +391,7 @@ const ProductsList = () => {
               </div>
 
               {/* Stats Bar */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-12">
                 {stats.map((stat, index) => {
                   const Icon = stat.icon
                   return (
@@ -404,13 +404,13 @@ const ProductsList = () => {
                       className="relative group"
                     >
                       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity blur-xl" />
-                      <div className="relative flex items-center gap-4 p-5 rounded-2xl bg-white/5 border border-blue-500/10 hover:border-blue-500/30 transition-colors">
-                        <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center">
-                          <Icon className="w-6 h-6 text-blue-400" />
+                      <div className="relative flex flex-col sm:flex-row items-center gap-2 sm:gap-4 p-3 sm:p-5 rounded-2xl bg-white/5 border border-blue-500/10 hover:border-blue-500/30 transition-colors text-center sm:text-left">
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-indigo-500/20 flex items-center justify-center flex-shrink-0">
+                          <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-blue-400" />
                         </div>
                         <div>
-                          <div className="text-2xl md:text-3xl font-bold text-white font-space">{stat.value}</div>
-                          <div className="text-sm text-gray-500">{stat.label}</div>
+                          <div className="text-xl sm:text-2xl md:text-3xl font-bold text-white font-space">{stat.value}</div>
+                          <div className="text-xs sm:text-sm text-gray-500">{stat.label}</div>
                         </div>
                       </div>
                     </motion.div>
@@ -425,7 +425,7 @@ const ProductsList = () => {
                 viewport={{ once: true }}
                 className="max-w-4xl mb-12"
               >
-                <p className="text-xl md:text-2xl text-gray-300 leading-relaxed">
+                <p className="text-base sm:text-xl md:text-2xl text-gray-300 leading-relaxed text-center sm:text-left">
                   AXIO AI unifies <span className="text-blue-400 font-semibold">AI chat</span>,
                   <span className="text-indigo-400 font-semibold"> document intelligence</span>,
                   <span className="text-violet-400 font-semibold"> data visualization</span>, and
@@ -552,21 +552,21 @@ const ProductsList = () => {
             <div className="absolute -inset-[1px] bg-gradient-to-r from-emerald-500 via-cyan-500 to-teal-500 rounded-[32px]" />
 
             {/* Card Content */}
-            <div className="relative bg-[#0a0520]/95 backdrop-blur-xl rounded-[30px] p-8 md:p-12 lg:p-16">
+            <div className="relative bg-[#0a0520]/95 backdrop-blur-xl rounded-[20px] sm:rounded-[30px] p-4 sm:p-8 md:p-12 lg:p-16">
 
               {/* Top Section - Logo & Title */}
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-12">
-                <div className="flex items-center gap-6">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 md:gap-8 mb-12">
+                <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 text-center sm:text-left">
                   {/* Animated Logo Container */}
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
                     transition={{ type: 'spring', duration: 1 }}
-                    className="relative"
+                    className="relative flex-shrink-0"
                   >
                     <div className="absolute -inset-3 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-3xl opacity-50 blur-xl animate-pulse" />
-                    <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-white/5 backdrop-blur-xl border border-emerald-500/20 p-3 overflow-hidden">
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl bg-white/5 backdrop-blur-xl border border-emerald-500/20 p-2 sm:p-3 overflow-hidden">
                       <Image
                         src="/DocNavigator.png"
                         alt="DocNavigator AI"
@@ -578,19 +578,19 @@ const ProductsList = () => {
                   </motion.div>
 
                   <div>
-                    <h2 className="text-4xl md:text-6xl font-bold font-space mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold font-space mb-2">
                       <span className="text-white">Doc</span>
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Navigator</span>
                       <span className="text-white"> AI</span>
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl">Turn Any Documentation Into a Smart AI Knowledge Base</p>
+                    <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl">Turn Any Documentation Into a Smart AI Knowledge Base</p>
                   </div>
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
                   <a
-                    href="https://docsassistant.perfionixai.com/"
+                    href="https://docnavigator.perfionixai.com/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white bg-gradient-to-r from-emerald-500 via-cyan-500 to-teal-500 hover:from-emerald-400 hover:via-cyan-400 hover:to-teal-400 transition-all duration-300 hover:scale-105 cursor-pointer shadow-lg shadow-emerald-500/25"
@@ -848,35 +848,35 @@ const ProductsList = () => {
             <div className="absolute -inset-[1px] bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 rounded-[32px]" />
 
             {/* Card Content */}
-            <div className="relative bg-[#0a0520]/95 backdrop-blur-xl rounded-[30px] p-8 md:p-12 lg:p-16">
+            <div className="relative bg-[#0a0520]/95 backdrop-blur-xl rounded-[20px] sm:rounded-[30px] p-4 sm:p-8 md:p-12 lg:p-16">
 
               {/* Top Section - Logo & Title */}
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-12">
-                <div className="flex items-center gap-6">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 md:gap-8 mb-12">
+                <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 text-center sm:text-left">
                   {/* Animated Logo Container */}
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
                     transition={{ type: 'spring', duration: 1 }}
-                    className="relative"
+                    className="relative flex-shrink-0"
                   >
                     <div className="absolute -inset-3 bg-gradient-to-r from-orange-500 to-red-500 rounded-3xl opacity-50 blur-xl animate-pulse" />
-                    <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-xl border border-orange-500/20 flex items-center justify-center">
-                      <Mic className="w-12 h-12 md:w-16 md:h-16 text-orange-400" />
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-500/20 backdrop-blur-xl border border-orange-500/20 flex items-center justify-center">
+                      <Mic className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-orange-400" />
                     </div>
                   </motion.div>
 
                   <div>
-                    <h2 className="text-4xl md:text-6xl font-bold font-space mb-2">
+                    <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold font-space mb-2">
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">Friday</span>
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl">Your Intelligent Hindi Voice Companion</p>
+                    <p className="text-gray-400 text-base sm:text-lg md:text-xl">Your Intelligent Hindi Voice Companion</p>
                   </div>
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
                   <a
                     href="https://voicebot.perfionixai.com/"
                     target="_blank"
@@ -1087,35 +1087,35 @@ const ProductsList = () => {
             <div className="absolute -inset-[1px] bg-gradient-to-r from-green-500 via-teal-500 to-cyan-500 rounded-[32px]" />
 
             {/* Card Content */}
-            <div className="relative bg-[#0a0520]/95 backdrop-blur-xl rounded-[30px] p-8 md:p-12 lg:p-16">
+            <div className="relative bg-[#0a0520]/95 backdrop-blur-xl rounded-[20px] sm:rounded-[30px] p-4 sm:p-8 md:p-12 lg:p-16">
 
               {/* Top Section - Logo & Title */}
-              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-12">
-                <div className="flex items-center gap-6">
+              <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 md:gap-8 mb-12">
+                <div className="flex flex-col sm:flex-row items-center sm:items-center gap-4 sm:gap-6 text-center sm:text-left">
                   {/* Animated Logo Container */}
                   <motion.div
                     initial={{ scale: 0, rotate: -180 }}
                     whileInView={{ scale: 1, rotate: 0 }}
                     viewport={{ once: true }}
                     transition={{ type: 'spring', duration: 1 }}
-                    className="relative"
+                    className="relative flex-shrink-0"
                   >
                     <div className="absolute -inset-3 bg-gradient-to-r from-green-500 to-teal-500 rounded-3xl opacity-50 blur-xl animate-pulse" />
-                    <div className="relative w-24 h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-green-500/20 to-teal-500/20 backdrop-blur-xl border border-green-500/20 flex items-center justify-center">
-                      <Sun className="w-12 h-12 md:w-16 md:h-16 text-green-400" />
+                    <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 rounded-2xl bg-gradient-to-br from-green-500/20 to-teal-500/20 backdrop-blur-xl border border-green-500/20 flex items-center justify-center">
+                      <Sun className="w-10 h-10 sm:w-12 sm:h-12 md:w-16 md:h-16 text-green-400" />
                     </div>
                   </motion.div>
 
                   <div>
-                    <h2 className="text-4xl md:text-6xl font-bold font-space mb-2">
+                    <h2 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold font-space mb-2">
                       <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-teal-400">RenewForecast</span>
                     </h2>
-                    <p className="text-gray-400 text-lg md:text-xl">AI-Powered Renewable Energy Prediction</p>
+                    <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl">AI-Powered Renewable Energy Prediction</p>
                   </div>
                 </div>
 
                 {/* CTA Buttons */}
-                <div className="flex flex-wrap gap-4">
+                <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
                   <a
                     href="http://renewforecast.perfionixai.com"
                     target="_blank"

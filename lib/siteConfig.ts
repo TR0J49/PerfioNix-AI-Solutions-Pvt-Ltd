@@ -100,7 +100,7 @@ export const PRODUCTS = [
   {
     name: 'DocNavigator AI',
     description: 'AI-powered documentation crawler and RAG system that transforms any documentation into an intelligent knowledge base',
-    url: 'https://docsassistant.perfionixai.com/',
+    url: 'https://docnavigator.perfionixai.com/',
     category: 'Documentation Software'
   },
   {

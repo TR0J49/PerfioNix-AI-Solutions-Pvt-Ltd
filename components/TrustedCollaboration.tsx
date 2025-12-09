@@ -127,10 +127,9 @@ const TrustedCollaboration = () => {
 
               <Link
                 href="/collaboration"
-                className="group/btn relative block px-8 py-4 rounded-xl font-semibold overflow-hidden transition-all duration-300 hover:scale-105"
+                className="group/btn relative block px-8 py-4 rounded-xl font-semibold overflow-hidden transition-all duration-300 hover:scale-105 bg-transparent border border-purple-500/50 hover:border-purple-400 hover:bg-purple-500/10 backdrop-blur-sm"
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-primary-500 to-secondary-500" />
-                <span className="relative flex items-center justify-center text-white">
+                <span className="relative flex items-center justify-center text-purple-300 group-hover/btn:text-white transition-colors">
                   <Heart className="mr-2" size={20} />
                   Start Your Journey
                 </span>

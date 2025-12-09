@@ -36,121 +36,45 @@ const Hero = () => {
           <div className="w-2 h-2 rounded-full bg-purple-400 animate-ping" />
         </motion.div>
 
-        {/* Main Heading with Advanced Motion Effects */}
+        {/* Main Heading with Smooth Motion Effects */}
         <motion.h1
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight font-space"
         >
-          {/* First Line - Word by Word Animation */}
-          <span className="block overflow-hidden">
-            {['Engineering', 'Tomorrow', 'with'].map((word, index) => (
-              <motion.span
-                key={word}
-                initial={{ y: 100, opacity: 0, rotateX: -90 }}
-                animate={{ y: 0, opacity: 1, rotateX: 0 }}
-                transition={{
-                  duration: 0.8,
-                  delay: index * 0.15,
-                  ease: [0.25, 0.46, 0.45, 0.94]
-                }}
-                className="inline-block mr-[0.3em] hover:text-purple-300 transition-colors duration-300"
-              >
-                {word}
-              </motion.span>
-            ))}
-          </span>
-
-          {/* Second Line - Intelligent AI Today with Special Effects */}
+          {/* First Line */}
           <motion.span
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
+            className="block"
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Engineering Tomorrow with
+          </motion.span>
+
+          {/* Second Line - Intelligent AI Today */}
+          <motion.span
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
             className="block mt-2 relative"
           >
-            {/* Animated gradient background glow */}
-            <motion.span
-              className="absolute inset-0 bg-gradient-to-r from-purple-500/30 via-cyan-500/30 to-pink-500/30 blur-3xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.6, 0.3],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-
-            {/* Main text with character animation */}
-            <span className="relative inline-flex flex-wrap justify-center">
-              {['I', 'n', 't', 'e', 'l', 'l', 'i', 'g', 'e', 'n', 't', ' ', 'A', 'I', ' ', 'T', 'o', 'd', 'a', 'y'].map((char, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ y: 50, opacity: 0, scale: 0 }}
-                  animate={{ y: 0, opacity: 1, scale: 1 }}
-                  transition={{
-                    duration: 0.5,
-                    delay: 0.6 + index * 0.04,
-                    type: "spring",
-                    stiffness: 150,
-                    damping: 12
-                  }}
-                  className={`inline-block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 ${char === ' ' ? 'w-[0.3em]' : ''}`}
-                  style={{
-                    animationDelay: `${index * 0.1}s`
-                  }}
-                  whileHover={{
-                    scale: 1.2,
-                    y: -10,
-                    transition: { duration: 0.2 }
-                  }}
-                >
-                  {char === ' ' ? '\u00A0' : char}
-                </motion.span>
-              ))}
+            {/* Main gradient text */}
+            <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 animate-gradient bg-[length:200%_auto]">
+              Intelligent AI Today
             </span>
 
             {/* Animated underline */}
             <motion.span
-              className="absolute -bottom-2 left-0 h-1 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 rounded-full"
-              initial={{ width: 0, opacity: 0 }}
-              animate={{ width: '100%', opacity: 1 }}
-              transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
+              className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-cyan-500 to-pink-500 rounded-full origin-left"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             />
 
-            {/* Neural connection dots - animated */}
-            <motion.span
-              className="absolute -bottom-6 left-1/4 w-2 h-2 bg-cyan-400 rounded-full"
-              animate={{
-                y: [0, -8, 0],
-                opacity: [0.3, 1, 0.3],
-                scale: [0.5, 1, 0.5]
-              }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            />
-            <motion.span
-              className="absolute -bottom-6 left-1/2 w-2 h-2 bg-purple-400 rounded-full"
-              animate={{
-                y: [0, -8, 0],
-                opacity: [0.3, 1, 0.3],
-                scale: [0.5, 1, 0.5]
-              }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.3 }}
-            />
-            <motion.span
-              className="absolute -bottom-6 left-3/4 w-2 h-2 bg-pink-400 rounded-full"
-              animate={{
-                y: [0, -8, 0],
-                opacity: [0.3, 1, 0.3],
-                scale: [0.5, 1, 0.5]
-              }}
-              transition={{ duration: 1.5, repeat: Infinity, delay: 0.6 }}
-            />
-
-            {/* Blur duplicate for glow effect */}
-            <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 blur-2xl opacity-50 pointer-events-none">
+            {/* Subtle glow behind text */}
+            <span className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-cyan-400 to-pink-400 blur-2xl opacity-40 pointer-events-none">
               Intelligent AI Today
             </span>
           </motion.span>
