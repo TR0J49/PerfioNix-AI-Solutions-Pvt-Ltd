@@ -51,7 +51,7 @@ Perfionix AI is a cutting-edge AI consulting company providing next-generation A
 
 Always be helpful, professional, and provide structured responses. If asked about something you don't know, politely say so and suggest contacting the team directly.`
 
-const GEMINI_API_KEY = 'AIzaSyCzwA_xaKNtIJrKB2wFaZG6U8zkybqdORs'
+const GEMINI_API_KEY = process.env.NEXT_PUBLIC_GEMINI_API_KEY || ''
 const GEMINI_MODEL = 'gemini-2.5-flash'
 const GEMINI_ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:streamGenerateContent?alt=sse&key=${GEMINI_API_KEY}`
 

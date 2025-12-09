@@ -69,6 +69,7 @@ module.exports = {
         'glow-cyan': 'glow-cyan 2s ease-in-out infinite alternate',
         'spin-slow': 'spin 8s linear infinite',
         'bounce-slow': 'bounce 3s infinite',
+        'bounce-gentle': 'bounce-gentle 2s ease-in-out infinite',
         'shimmer': 'shimmer 2s infinite',
         'pulse-ring': 'pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'gradient-x': 'gradient-x 3s ease infinite',
@@ -77,6 +78,10 @@ module.exports = {
         'text-glow': 'text-glow 2s ease-in-out infinite alternate',
         'float-delayed': 'float 6s ease-in-out 2s infinite',
         'scale-pulse': 'scale-pulse 2s ease-in-out infinite',
+        'scan-line': 'scan-line 2s linear infinite',
+        'data-flow': 'data-flow 1.5s linear infinite',
+        'data-flow-delayed': 'data-flow 1.5s linear 0.5s infinite',
+        'data-flow-slow': 'data-flow 2s linear 0.25s infinite',
       },
       keyframes: {
         gradient: {
@@ -143,6 +148,21 @@ module.exports = {
         'scale-pulse': {
           '0%, 100%': { transform: 'scale(1)' },
           '50%': { transform: 'scale(1.05)' },
+        },
+        'bounce-gentle': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
+        },
+        'scan-line': {
+          '0%': { top: '0%', opacity: '1' },
+          '50%': { opacity: '0.5' },
+          '100%': { top: '100%', opacity: '1' },
+        },
+        'data-flow': {
+          '0%': { top: '0%', opacity: '0' },
+          '10%': { opacity: '1' },
+          '90%': { opacity: '1' },
+          '100%': { top: '100%', opacity: '0' },
         },
       },
       backgroundImage: {
